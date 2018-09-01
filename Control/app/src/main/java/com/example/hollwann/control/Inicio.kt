@@ -66,12 +66,19 @@ class Inicio : AppCompatActivity() {
         val address = info.substring(info.length - 17)
 
         // Se crea un intent para iniciar la siguiente actividad
-        //val i = Intent(this@Inicio, ::class.java) # en proceso
+        val i = Intent(this@Inicio, descontaminador::class.java)
 
         //Pasa al nuevo layout
         i.putExtra(EXTRA_ADDRESS, address) // Esta variable sera recibida en la proxima actividad para saber a que dispositivo coectarse
+        var tipo_jugador = ""
+        if(rbtn_con.isChecked){
+            tipo_jugador = "c"
+        }
+        else{
+            tipo_jugador = "d"
+        }
+        i.putExtra("tipo_jugador",tipo_jugador)
         startActivity(i)
     }
-
 }
 
