@@ -13,3 +13,13 @@ esta contruido con los materiales que los creadores encontraron camino a la hack
 
 
 La contruccion del modelo esta dividida en 3 partes escenciales programacion, contenido digital y construccion fisica. La construccion fisica el juego se puede realizar dependiendo de los materiales de los que se disponga.
+
+
+## Contenido Digital
+
+La parte digital consiste de imagenes que crearon por medio de Adobe Photoshop las cuales se imprimieron para usar como plantillas de la parte fisica del juego
+
+## Programación
+
+Para la elaboracion del juego se diponia de un arduino mega, aunque el programa se puede migrar facilmente a diferente tipos de sistemas embebidos, ya que esta escrito en lenguaje de programación C.
+
