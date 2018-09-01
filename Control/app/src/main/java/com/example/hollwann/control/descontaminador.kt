@@ -35,9 +35,9 @@ class descontaminador : AppCompatActivity() {
             ConnectBT()
         }
         //se inicia la musica de fondo
-        mp = MediaPlayer.create (this, R.raw.music)
+        /*mp = MediaPlayer.create (this, R.raw.music)
         mp.start()
-        mp.isLooping = true
+        mp.isLooping = true*/
 
         //botones contaminador
         btn_izq.setOnClickListener { env_accion("c0") }
