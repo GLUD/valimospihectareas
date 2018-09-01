@@ -23,7 +23,7 @@ void loop() {
   printTablero();
   printVida();
   delay(3000);
-  for(int j=74; j>=0; j--){    // Algoritmo para desplazar las columnas
+  for(int j=76; j>=0; j--){    // Algoritmo para desplazar las columnas
     if(j<=7){
       tablero[j]=0;
       }
