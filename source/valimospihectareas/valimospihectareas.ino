@@ -24,8 +24,9 @@ void loop() {
     if(j<=7){
       tablero[j]=0;
       }
-    tablero[j]=tablero[j-7];
-    
+    else{
+      tablero[j]=tablero[j-7];
+      }
     }
    
   }
