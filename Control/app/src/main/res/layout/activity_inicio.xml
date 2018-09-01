@@ -20,4 +20,27 @@
         android:layout_alignEnd="@+id/btnPaired"
         android:layout_alignParentTop="true"
         android:layout_marginTop="100dp" />
+
+    <RadioGroup
+        android:id="@+id/r_grp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:checkedButton="@+id/rbtn_con">
+
+        <RadioButton
+            android:id="@+id/rbtn_con"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Contaminador" />
+
+        <RadioButton
+            android:id="@+id/rbtn_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Descontaminador" />
+    </RadioGroup>
 </RelativeLayout>
