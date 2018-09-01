@@ -37,7 +37,11 @@ class Inicio : AppCompatActivity() {
         }
 
         btnPaired.setOnClickListener { pairedDevicesList() }
-
+        //boton de info
+        btn_info.setOnClickListener {
+            val i = Intent(this@Inicio, info::class.java)
+            startActivity(i)
+        }
     }
 
     private fun pairedDevicesList() {
@@ -70,14 +74,6 @@ class Inicio : AppCompatActivity() {
 
         //Pasa al nuevo layout
         i.putExtra(EXTRA_ADDRESS, address) // Esta variable sera recibida en la proxima actividad para saber a que dispositivo coectarse
-        var tipo_jugador = ""
-        if(rbtn_con.isChecked){
-            tipo_jugador = "c"
-        }
-        else{
-            tipo_jugador = "d"
-        }
-        i.putExtra("tipo_jugador",tipo_jugador)
         startActivity(i)
     }
 }

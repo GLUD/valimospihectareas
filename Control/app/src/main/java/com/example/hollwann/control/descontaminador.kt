@@ -28,22 +28,25 @@ class descontaminador : AppCompatActivity() {
 
         val newint = intent
         address = newint.getStringExtra("device_address") //Se recibe la direccion del bluetooth
-        tipo_jugador = newint.getStringExtra("tipo_jugador")
         doAsync {
             //Se conecta el control al bluetooth
             ConnectBT()
         }
-
-        btn_izq.setOnClickListener { env_accion("0") }
-        btn_der.setOnClickListener { env_accion("1") }
-        btn_accion.setOnClickListener { env_accion("2") }
+        //botones contaminador
+        btn_izq.setOnClickListener { env_accion("c0") }
+        btn_der.setOnClickListener { env_accion("c1") }
+        btn_accion.setOnClickListener { env_accion("c2") }
+        //botones descontaminador
+        btn_izq_des.setOnClickListener { env_accion("d0") }
+        btn_der_des.setOnClickListener { env_accion("d1") }
+        btn_acc_des.setOnClickListener { env_accion("d2") }
     }
 
 
     private fun env_accion(accion: String) {
         if (btSocket != null) {
             try {
-                btSocket!!.outputStream.write((tipo_jugador+accion).toByteArray())
+                btSocket!!.outputStream.write((accion).toByteArray())
             } catch (e: IOException) {
                 msg("Error")
             }

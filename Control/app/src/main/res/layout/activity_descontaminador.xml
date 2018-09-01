@@ -5,7 +5,7 @@
     <Button
         android:id="@+id/btn_izq"
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:layout_above="@+id/btn_accion"
         android:layout_alignParentStart="true"
         android:text="Izquierda" />
@@ -13,7 +13,7 @@
     <Button
         android:id="@+id/btn_der"
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/btn_izq"
         android:text="Derecha" />
@@ -21,9 +21,33 @@
     <Button
         android:id="@+id/btn_accion"
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Accion" />
+
+    <Button
+        android:id="@+id/btn_acc_des"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="uóᴉɔɔ∀" />
+
+    <Button
+        android:id="@+id/btn_der_des"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btn_acc_des"
+        android:text="ɐɥɔǝɹǝp" />
+
+    <Button
+        android:id="@+id/btn_izq_des"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/btn_acc_des"
+        android:text="ɐpɹǝᴉnbzᴉ" />
 
 </RelativeLayout>

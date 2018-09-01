@@ -1,13 +1,13 @@
 char unsigned tablero[77] = {
-  0, 0, 1, 0, 0, 0, 0,
-  0, 0, 0, 1, 0, 0, 0,
-  1, 0, 0, 0, 0, 0, 0,
-  0, 1, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 1,
-  0, 0, 1, 0, 0, 0, 0,
-  1, 0, 0, 0, 0, 0, 0,
-  0, 1, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 1,
+  0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0,
   0, 0, 0, 0, 0, 0, 0,
   0, 0, 0, 0, 0, 0, 0 /// esta fila son lo valores de desborde los cualesmseran evaluados para contar la vida a restar
 }; //inicio la matriz del tablero como un vector de 75 posiciones
