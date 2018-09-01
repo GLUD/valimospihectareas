@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
 import android.content.Context
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Vibrator
 import android.support.v7.app.AppCompatActivity
@@ -21,6 +22,7 @@ class descontaminador : AppCompatActivity() {
     private var isBtConnected = false
     //SPP UUID
     private val myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
+    private lateinit var mp: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +34,11 @@ class descontaminador : AppCompatActivity() {
             //Se conecta el control al bluetooth
             ConnectBT()
         }
+        //se inicia la musica de fondo
+        mp = MediaPlayer.create (this, R.raw.music)
+        mp.start()
+        mp.isLooping = true
+
         //botones contaminador
         btn_izq.setOnClickListener { env_accion("c0") }
         btn_der.setOnClickListener { env_accion("c1") }

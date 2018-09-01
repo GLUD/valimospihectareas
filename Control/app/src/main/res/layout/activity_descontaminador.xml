@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
@@ -8,7 +9,8 @@
         android:layout_height="100dp"
         android:layout_above="@+id/btn_accion"
         android:layout_alignParentStart="true"
-        android:text="Izquierda" />
+        android:text="&lt;&lt;"
+        android:textSize="40sp"  />
 
     <Button
         android:id="@+id/btn_der"
@@ -16,7 +18,8 @@
         android:layout_height="100dp"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/btn_izq"
-        android:text="Derecha" />
+        android:text="&gt;&gt;"
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/btn_accion"
@@ -24,7 +27,7 @@
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Accion" />
+        android:text="Contaminar" />
 
     <Button
         android:id="@+id/btn_acc_des"
@@ -32,7 +35,8 @@
         android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="uóᴉɔɔ∀" />
+        android:text="Reciclar"
+        android:rotation="180" />
 
     <Button
         android:id="@+id/btn_der_des"
@@ -40,7 +44,8 @@
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/btn_acc_des"
-        android:text="ɐɥɔǝɹǝp" />
+        android:text="&lt;&lt;"
+        android:textSize="40sp"  />
 
     <Button
         android:id="@+id/btn_izq_des"
@@ -48,6 +53,26 @@
         android:layout_height="100dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/btn_acc_des"
-        android:text="ɐpɹǝᴉnbzᴉ" />
+        android:text="&gt;&gt;"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_izq"
+        android:layout_centerHorizontal="true"
+        android:text="Contaminador"
+        android:textSize="40sp"/>
+
+    <TextView
+        android:id="@+id/Descontaminador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_der_des"
+        android:layout_centerHorizontal="true"
+        android:text="Descontaminador"
+        android:rotation="180"
+        android:textSize="40sp" />
 
 </RelativeLayout>
