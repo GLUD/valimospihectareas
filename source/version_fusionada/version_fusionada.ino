@@ -1,5 +1,7 @@
+#include <Servo.h>
+
 char unsigned tablero[77] = {
-  1, 1, 1, 1, 1, 1, 1,
+  0, 0, 0, 0, 0, 0, 0,
   0, 0, 0, 0, 0, 0, 0,
   0, 0, 0, 0, 0, 0, 0,
   0, 0, 0, 0, 0, 0, 0,
@@ -50,18 +52,19 @@ void setup() {
   TIMSK1 |= (1 << TOIE1);   // enable timer overflow interrupt
   interrupts();   // enable all interrupts
   servoMotor.attach(9);
-  servoMotor = pos_des * 45;
+  servoMotor.write(pos_des * 45);
   servoMotor1.attach(10);
-  servoMotor1 = pos_con * 45;
+  servoMotor1.write(pos_con * 45);
+  VectoraMatriz();        //Convierte el vector a matriz
 }
 
 ISR(TIMER1_OVF_vect)       //interrupcion por tiempo cada 2 segundos
 {
   noInterrupts();           //Deshabilita las interrupciones
   TCNT1 = 34286;            // preload timer
-  VectoraMatriz();        //Convierte el vector a matriz
   desplazar();
   restarvida();
+  VectoraMatriz();        //Convierte el vector a matriz
   interrupts();           //Habilita las interrupciones
 }
 void loop() {
@@ -123,25 +126,28 @@ void desplazar() {//desplaza todas las filas hacia abajo
 }
 
 void restarvida() {
-  digitalWrite(vidav[vida], LOW);
   for (int i = 70; i < 77; i++) {
     if (tablero[i] == 1 && pos_des != (i - 70)) { //verifica que el descontaminador recoja la basura
       vida--;
+      digitalWrite(vidav[vida], LOW);
     }
   }
   //revisa si to
-  if (vida == 0) {
+  if (vida <= 0) {
     prendertodo();
   }
 }
 
 void  prendertodo() {
+  while(1){
   for (int f = 0; f < 10; f++) {
     for (int k = 0; k < 7; k++) {
+      off();
       digitalWrite(columnas[k], LOW);
       digitalWrite(filas[f], HIGH);
+      delay(200);
     }
-  }
+  }}
 }
 void quitarbasura() {
   for (int i = 63; i < 70; i++) {
@@ -161,35 +167,35 @@ void serialEvent1() {
     data += inChar;
     // Si ya tiene 2 datos, data esta lleno
     if (data.length() == 2) {
-      if (data == "c0") {
+      if (data == "c1") {
         if (pos_con > 1) { //Limite Izquierdo
           pos_con += -1; //corre el contminador a la izquierda
         }
       }
-      else if (data == "c1") {
+      else if (data == "c0") {
         if (pos_con < 5) { //limite derecho
           pos_con += 1; //corre el contaminador a la derecha
-          servoMotor1 = pos_con * 45;
+          servoMotor1.write(pos_con * 45);
         }
       }
       else if (data == "c2") {
         d = pos_con;
         agregarbasura(); //agrega una basura en la posicion d
-        servoMotor1 = pos_con * 45;
+        servoMotor1.write(pos_con * 45);
       }
       else if (data == "d0") {
         if (pos_des > 1) { //Limite Izquierdo
           pos_des += -1; //corre el descontaminador a la izquierda
-          servoMotor = pos_des * 45;
+          servoMotor.write(pos_des * 45);
         }
       }
       else if (data == "d1") {
         if (pos_des < 5) { //limite derecho
           pos_des += 1; //corre el descontaminador a la derecha
-          servoMotor = pos_des * 45;
+          servoMotor.write(pos_des * 45);
         }
       }
-      else if (data == "c2") {
+      else if (data == "d2") {
         e = pos_des;
         quitarbasura();
       }
