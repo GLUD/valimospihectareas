@@ -1,16 +1,18 @@
-int tablero[77]={
-  0,0,0,0,0,0,0,
+char unsigned tablero[77]={
+  0,0,1,0,0,0,0,
+  0,0,0,1,0,1,0,
   1,0,0,0,0,0,0,
-  0,1,0,0,0,0,0,
-  1,0,1,0,0,0,0,
+  0,1,0,0,0,0,1,
+  0,0,0,0,0,1,1,
+  0,0,1,0,0,0,0,
+  1,0,0,0,0,0,1,
   0,1,0,1,0,0,0,
-  0,0,1,0,1,0,0,
-  0,0,0,1,0,0,0,
-  0,0,0,0,1,0,0,
-  0,0,0,0,0,1,0,
-  0,0,0,0,0,0,1,
+  0,0,1,0,1,1,1,
+  0,0,0,0,0,0,0,
   0,0,0,0,0,0,0   /// esta fila son lo valores de desborde los cualesmseran evaluados para contar la vida a restar
   }; //inicio la matriz del tablero como un vector de 75 posiciones
+ char unsigned  vida = 10;  
+  
 
 
 void setup() {
@@ -19,8 +21,9 @@ void setup() {
 
 void loop() {
   printTablero();
+  printVida();
   delay(3000);
-  for(int j=74; j>=0; j--){
+  for(int j=74; j>=0; j--){    // Algoritmo para desplazar las columnas
     if(j<=7){
       tablero[j]=0;
       }
@@ -28,10 +31,25 @@ void loop() {
       tablero[j]=tablero[j-7];
       }
     }
+   restarvida();
    
   }
 
-void printTablero(){
+void restarvida(){
+  for(int i=70; i<77; i++){
+    if(tablero[i]==1){
+      vida--;  
+      }
+  
+        
+    }
+  }  
+
+void printVida(){
+  Serial.print(vida);
+  }  
+
+void printTablero(){  //funcion para imprimir en el monitor serial el vector en forma de matriz
   Serial.println("Los valores de la matriz son:");
   for(int i=0; i<7 ; i++){
     Serial.print(tablero[i]);
