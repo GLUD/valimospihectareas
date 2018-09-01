@@ -3,7 +3,9 @@ package com.example.hollwann.control
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
+import android.content.Context
 import android.os.Bundle
+import android.os.Vibrator
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_descontaminador.*
@@ -45,6 +47,8 @@ class descontaminador : AppCompatActivity() {
             } catch (e: IOException) {
                 msg("Error")
             }
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(150)
         }
     }
 
